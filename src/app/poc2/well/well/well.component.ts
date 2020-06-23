@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter, Input, OnChanges } from '@angular/core';
 
 
 @Component({
@@ -6,15 +6,27 @@ import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/cor
   templateUrl: './well.component.html',
   styleUrls: ['./well.component.styl']
 })
-export class WellComponent implements OnInit {
+export class WellComponent implements OnChanges {
   @ViewChild('name') public name;
-  @ViewChild('name') public type;
-  @ViewChild('name') public sourceKey;
+  @ViewChild('type') public type;
+  @ViewChild('sourceKey') public sourceKey;
   wellData;
-  @Output() public wellObject = new EventEmitter();
-  constructor() { }
+  @Output() public newWellItem = new EventEmitter();
+  @Input('sourceValue') public sourceValue;
+  @ViewChild('myForm') public myForm;
+  disableSource: boolean = false;
+  constructor() {
+    if (this.sourceValue) {
+      console.log(this.myForm);
+      this.disableSource = true;
+    }
+  }
 
-  ngOnInit(): void {
+  ngOnChanges() {
+    // this.name.nativeElement.value = this.sourceValue;
+    if (this.sourceValue) {
+      this.disableSource = true;
+    }
   }
 
   addWell() {
@@ -23,9 +35,8 @@ export class WellComponent implements OnInit {
       type: this.type.nativeElement.value,
       sourceKey: this.sourceKey.nativeElement.value
     }
-    this.wellObject.emit(this.wellData);
-    console.log("Add Well");
-    console.log(this.wellData);
+    if ((this.wellData.name && this.wellData.type && this.wellData.sourceKey) != "") {
+      this.newWellItem.emit(this.wellData);
+    }
   }
-
 }

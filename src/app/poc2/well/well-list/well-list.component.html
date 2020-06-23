@@ -1,18 +1,23 @@
-<app-well></app-well>
+<div class="well-list">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Source Key</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of wellList">
+                <td>{{user.name}}</td>
+                <td [ngClass]="user.type === 'dep' ? 'greenBgnd': 'pinkBgnd'">{{user.type}}</td>
+                <td (click)="getSourceKey($event)">{{user.sourceKey}}</td>
+            </tr>
+        </tbody>
+    </table>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Source Key</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let user of wellList">
-            <td>{{user.name}}</td>
-            <td>{{user.type}}</td>
-            <td>{{user.sourceKey}}</td>
-        </tr>
-    </tbody>
-</table>
+    <button (click)="addNewWellCmp()">AddWell</button>
+
+    <app-well [sourceValue]="sourceKeyClicked" (newWellItem)='addNewWell($event)' *ngIf="showWell"></app-well>
+
+</div>

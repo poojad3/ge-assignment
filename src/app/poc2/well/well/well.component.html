@@ -1,4 +1,4 @@
-<div class="well-wrapper">
+<form #myForm class="well-wrapper">
     <h3>Add Well</h3>
     <div class="form-group">
         <label for="usr">Name</label>
@@ -12,8 +12,9 @@
 
     <div class="form-group">
         <label for="usr">Source Key</label>
-        <input type="text" class="form-control" #sourceKey>
+        <input type="text" class="form-control" name="sourceKey" [(ngModel)]="sourceValue" [disabled]="disableSource"
+            #sourceKey>
     </div>
 
     <button (click)="addWell()">Add Well</button>
-</div>
+</form>
