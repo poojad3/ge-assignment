@@ -1,0 +1,18 @@
+<app-well></app-well>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Source Key</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of wellList">
+            <td>{{user.name}}</td>
+            <td>{{user.type}}</td>
+            <td>{{user.sourceKey}}</td>
+        </tr>
+    </tbody>
+</table>

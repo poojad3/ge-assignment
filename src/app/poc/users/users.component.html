@@ -1,0 +1,21 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of userDetails">
+            <td>{{user.name}}</td>
+            <td>{{user.age}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="toggleUser; else elseCondition">
+    div with Structural directive *ngIf
+</div>
+<ng-template #elseCondition>
+    div with Structural directive else
+</ng-template>
