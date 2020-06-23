@@ -10,7 +10,7 @@ import { RightComponent } from './poc3/right/right.component';
 import { Poc3Component } from './poc3/poc3.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -28,6 +28,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     DragDropModule
   ],
   providers: [],

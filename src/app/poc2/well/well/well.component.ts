@@ -1,5 +1,4 @@
-import { Component, OnInit, ViewChild, Output, EventEmitter, Input, OnChanges } from '@angular/core';
-
+import { Component, ViewChild, Output, EventEmitter, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-well',
@@ -15,15 +14,10 @@ export class WellComponent implements OnChanges {
   @Input('sourceValue') public sourceValue;
   @ViewChild('myForm') public myForm;
   disableSource: boolean = false;
-  constructor() {
-    if (this.sourceValue) {
-      console.log(this.myForm);
-      this.disableSource = true;
-    }
-  }
+
+  constructor() { }
 
   ngOnChanges() {
-    // this.name.nativeElement.value = this.sourceValue;
     if (this.sourceValue) {
       this.disableSource = true;
     }
@@ -35,8 +29,10 @@ export class WellComponent implements OnChanges {
       type: this.type.nativeElement.value,
       sourceKey: this.sourceKey.nativeElement.value
     }
-    if ((this.wellData.name && this.wellData.type && this.wellData.sourceKey) != "") {
+    if ((this.wellData.name && this.wellData.type && this.wellData.sourceKey)) {
       this.newWellItem.emit(this.wellData);
+      this.myForm.nativeElement.reset();
+      this.disableSource = false;
     }
   }
 }

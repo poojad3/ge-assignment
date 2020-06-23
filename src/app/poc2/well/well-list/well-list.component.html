@@ -16,8 +16,8 @@
         </tbody>
     </table>
 
-    <button (click)="addNewWellCmp()">AddWell</button>
+    <!-- <button (click)="addNewWellCmp()">AddWell</button> -->
 
-    <app-well [sourceValue]="sourceKeyClicked" (newWellItem)='addNewWell($event)' *ngIf="showWell"></app-well>
+    <app-well [sourceValue]="sourceKeyClicked" (newWellItem)='addNewWell($event)'></app-well>
 
 </div>

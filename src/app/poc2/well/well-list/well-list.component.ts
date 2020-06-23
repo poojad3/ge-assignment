@@ -11,7 +11,7 @@ export class WellListComponent {
   sourceKeyClicked: string;
   wellList = [
     { name: "TestRSlWell01", type: "esp", sourceKey: "1023433546", },
-    { name: "TestRSlWell02", type: "esp", sourceKey: "1023433546" },
+    { name: "TestRSlWell02", type: "esp", sourceKey: "1023433541" },
     { name: "TestRSlWell03", type: "esp", sourceKey: "1023433546" },
     { name: "TestRSlWell04", type: "dep", sourceKey: "1023433546" },
     { name: "TestRSlWell05", type: "esp", sourceKey: "1023433546" },
@@ -22,17 +22,11 @@ export class WellListComponent {
 
   constructor(private router: Router) { }
 
-  addNewWellCmp() {
-    this.showWell = true;
-  }
-
   getSourceKey(evt) {
-    this.showWell = true;
     this.sourceKeyClicked = evt.target.innerHTML;
   }
 
   addNewWell(evt) {
-    this.showWell = true;
     this.wellList.push(evt);
   }
 
