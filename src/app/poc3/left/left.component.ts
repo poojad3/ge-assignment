@@ -12,4 +12,8 @@ export class LeftComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+  }
+
 }

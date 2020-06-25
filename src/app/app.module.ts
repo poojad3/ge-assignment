@@ -12,6 +12,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
+import { RightDropDirective } from './poc3/right/right-drop.directive';
+import { LeftDragDirective } from './poc3/left/left-drag.directive';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { AppRoutingModule } from './app-routing.module';
     WellComponent,
     Poc3Component,
     LeftComponent,
-    RightComponent
+    RightComponent,
+    RightDropDirective,
+    LeftDragDirective
   ],
   imports: [
     AppRoutingModule,
